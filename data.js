@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.3",
-  batch: "视觉体验升级",
+  version: "1.4",
+  batch: "人物篇 · 孔子与老子",
 
   categories: [
     {
@@ -65,6 +65,8 @@ window.XLM_DATA = {
           id: "china-ezhou", name: "东周", emoji: "⚔️", desc: "前 770 — 前 256 · 春秋与战国",
           articles: [
             { id: "china-ezhou-1", title: "春秋：礼崩乐坏与五霸迭兴", year: "前770起", sub: "周天子还在，但说了算的换成了霸主", ready: true },
+            { id: "china-ezhou-confucius", title: "孔子：一个失败者如何成为万世师表", year: "前551–前479", sub: "从陋巷课堂到《论语》，他没说服诸侯，却教育了两千年", ready: true },
+            { id: "china-ezhou-laozi", title: "老子：五千字里的柔弱与力量", year: "约前6世纪", sub: "函谷关外的传说，与《道德经》真正留下的人生方法", ready: true },
             { id: "china-ezhou-2", title: "战国：变法图强与大兼并", year: "前453起", sub: "两百年淘汰赛，改革最狠的笑到最后", ready: true }
           ]
         },
