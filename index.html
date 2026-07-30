@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>学了么</title>
+  <meta name="description" content="像听长辈讲故事一样，读懂历史与经济。">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F1EA">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131315">
+
+  <!-- iPhone 添加到主屏幕 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="学了么">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- 顶栏 -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div id="back-slot" class="top-spacer"></div>
+      <div id="top-title" class="top-title"></div>
+      <div class="top-spacer"></div>
+    </div>
+  </div>
+
+  <!-- 页面内容 -->
+  <main id="app">
+    <noscript><div class="empty-tip">请在浏览器中启用 JavaScript 后使用。</div></noscript>
+  </main>
+
+  <!-- 目录数据 -->
+  <script src="./data.js"></script>
+  <!-- 各分类内容（按批次更新，替换对应文件即可） -->
+  <script src="./content-crisis.js"></script>
+  <script src="./content-china.js"></script>
+  <script src="./content-worldhist.js"></script>
+  <script src="./content-econ.js"></script>
+  <script src="./content-money.js"></script>
+  <script src="./content-powers.js"></script>
+  <script src="./content-people.js"></script>
+  <!-- 导航与渲染 -->
+  <script src="./app.js"></script>
+
+  <!-- 离线缓存 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js").catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>
