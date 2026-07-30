@@ -193,6 +193,7 @@
         h += '<div class="person-card"><div class="person-avatar">' + esc(p.name.charAt(0)) + "</div>" +
           '<div class="person-main"><div class="person-name-row">' +
           '<span class="person-name">' + esc(p.name) + "</span>" +
+          (p.years ? '<span class="person-years">' + esc(p.years) + "</span>" : "") +
           (p.role ? '<span class="person-role">' + esc(p.role) + "</span>" : "") +
           "</div>" + '<div class="person-desc">' + esc(p.desc) + "</div></div></div>";
       });
