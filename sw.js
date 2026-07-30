@@ -4,14 +4,13 @@
    每次发布新内容时，把下面的版本号加 1（如 v1 → v2）。
    ========================================================== */
 
-var CACHE_NAME = "xuelema-v4";
+var CACHE_NAME = "xuelema-v5";
 
 var ASSETS = [
-  "./",
-  "./index.html",
-  "./styles.css",
-  "./app.js",
-  "./data.js",
+  "./index.html?v=1.3",
+  "./styles.css?v=1.3",
+  "./app.js?v=1.3",
+  "./data.js?v=1.3",
   "./content-crisis.js",
   "./content-china.js",
   "./content-worldhist.js",
@@ -19,7 +18,7 @@ var ASSETS = [
   "./content-money.js",
   "./content-powers.js",
   "./content-people.js",
-  "./manifest.webmanifest",
+  "./manifest.webmanifest?v=1.3",
   "./icon-192-v2.png",
   "./icon-512-v2.png",
   "./apple-touch-icon-v2.png"
@@ -47,6 +46,22 @@ self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
   var url = new URL(e.request.url);
   if (url.origin !== location.origin) return;
+
+  // 导航始终绕过 HTTP 缓存取最新版 HTML，避免已安装 PWA 长时间停留在旧版。
+  if (e.request.mode === "navigate") {
+    e.respondWith(
+      fetch("./index.html?v=1.3", { cache: "no-store" }).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE_NAME).then(function (cache) {
+          cache.put("./index.html?v=1.3", copy);
+        });
+        return res;
+      }).catch(function () {
+        return caches.match("./index.html?v=1.3");
+      })
+    );
+    return;
+  }
 
   e.respondWith(
     fetch(e.request).then(function (res) {
