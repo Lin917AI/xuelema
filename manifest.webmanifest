@@ -1,7 +1,7 @@
 {
   "name": "学了么",
   "short_name": "学了么",
-  "description": "像听长辈讲故事一样，读懂历史与经济。",
+  "description": "每天读懂一段历史、一次经济浪潮，把好奇变成判断力。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
@@ -10,8 +10,8 @@
   "background_color": "#F4F1EA",
   "theme_color": "#F4F1EA",
   "icons": [
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "./icon-192-v2.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icon-512-v2.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512-v2.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
