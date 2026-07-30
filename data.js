@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.5",
-  batch: "人物群像 · 帝王将相与诗人",
+  version: "1.6",
+  batch: "人物群像 · 变法名臣与文人风骨",
 
   categories: [
     {
@@ -75,7 +75,8 @@ window.XLM_DATA = {
           articles: [
             { id: "china-qin-1", title: "商鞅变法：强国方案与它的代价", year: "前356起", sub: "徙木立信、作法自毙：一场改变中国底色的改革", ready: true },
             { id: "china-qin-2", title: "秦始皇：统一六国与二世而亡", year: "前221起", sub: "千古一帝与十五年而亡：制度活了两千年", ready: true },
-            { id: "china-qin-qinshihuang", title: "人物篇 · 秦始皇", year: "前259–前210", sub: "人质之子、千古一帝与求仙路上的孤独者", ready: true }
+            { id: "china-qin-qinshihuang", title: "人物篇 · 秦始皇", year: "前259–前210", sub: "人质之子、千古一帝与求仙路上的孤独者", ready: true },
+            { id: "china-qin-shangyang", title: "人物篇 · 商鞅", year: "约前390–前338", sub: "把秦国改造成战争机器，也被自己的制度反噬", ready: true }
           ]
         },
         {
@@ -87,7 +88,11 @@ window.XLM_DATA = {
             { id: "china-han-liubang", title: "人物篇 · 刘邦", year: "前256–前195", sub: "四十八岁起兵：一个总打败仗的人为什么赢到最后", ready: true },
             { id: "china-han-xiangyu", title: "人物篇 · 项羽", year: "前232–前202", sub: "力拔山兮气盖世：战神、虞姬与不会复盘的霸王", ready: true },
             { id: "china-han-hanwudi", title: "人物篇 · 汉武帝", year: "前156–前87", sub: "从金屋藏娇到轮台罪己：雄才大略的全部账单", ready: true },
-            { id: "china-han-huoqubing", title: "人物篇 · 霍去病", year: "前140–前117", sub: "十八岁封侯，二十三岁谢幕：最耀眼也最短暂的将星", ready: true }
+            { id: "china-han-huoqubing", title: "人物篇 · 霍去病", year: "前140–前117", sub: "十八岁封侯，二十三岁谢幕：最耀眼也最短暂的将星", ready: true },
+            { id: "china-han-hanxin", title: "人物篇 · 韩信", year: "约前231–前196", sub: "能指挥百万大军，却走不出功高震主的权力迷局", ready: true },
+            { id: "china-han-lvzhi", title: "人物篇 · 吕雉", year: "前241–前180", sub: "从患难妻子到铁腕掌舵人：暴行与治绩如何同看", ready: true },
+            { id: "china-han-zhangliang", title: "人物篇 · 张良", year: "约前250–前186", sub: "最聪明的不是献计，而是知道何时离场", ready: true },
+            { id: "china-han-xiaohe", title: "人物篇 · 萧何", year: "约前257–前193", sub: "别人争天下，他替天下准备粮仓、档案与人才", ready: true }
           ]
         },
         {
@@ -137,7 +142,12 @@ window.XLM_DATA = {
             { id: "china-tang-wuzetian", title: "人物篇 · 武则天", year: "624–705", sub: "从才人到女皇：无字碑为什么比颂词更有力量", ready: true },
             { id: "china-tang-libai", title: "人物篇 · 李白", year: "701–762", sub: "诗仙不是只会喝酒：天才、狂气与一生求仕不得", ready: true },
             { id: "china-tang-dufu", title: "人物篇 · 杜甫", year: "712–770", sub: "一个总在失业的父亲，如何写成中国人的诗史", ready: true },
-            { id: "china-tang-wangwei", title: "人物篇 · 王维", year: "约701–761", sub: "诗中有画：盛唐最安静的人，也经历过最喧闹的乱世", ready: true }
+            { id: "china-tang-wangwei", title: "人物篇 · 王维", year: "约701–761", sub: "诗中有画：盛唐最安静的人，也经历过最喧闹的乱世", ready: true },
+            { id: "china-tang-baijuyi", title: "人物篇 · 白居易", year: "772–846", sub: "让卖炭翁与长恨歌都能被普通人听见", ready: true },
+            { id: "china-tang-wangbo", title: "人物篇 · 王勃", year: "约650–约676", sub: "一篇滕王阁序，把二十余年的人生写成长回声", ready: true },
+            { id: "china-tang-wangchangling", title: "人物篇 · 王昌龄", year: "约698–约756", sub: "边塞风雪里，也藏着一片冰心", ready: true },
+            { id: "china-tang-yangyuhuan", title: "人物篇 · 杨玉环", year: "719–756", sub: "爱情传奇背后，她为何成了帝国衰败的替罪羊", ready: true },
+            { id: "china-tang-taiping", title: "人物篇 · 太平公主", year: "约665–713", sub: "最像武则天的女儿，为何没能成为第二个母亲", ready: true }
           ]
         },
         {
@@ -151,14 +161,21 @@ window.XLM_DATA = {
           articles: [
             { id: "china-song-1", title: "陈桥兵变与北宋立国", year: "960起", sub: "黄袍加身与杯酒释兵权：一杯酒解决千年难题", ready: true },
             { id: "china-song-2", title: "王安石变法：改革为何失败", year: "1069起", sub: "青苗法为何变成摊派：好心办坏事的标本", ready: true },
-            { id: "china-song-3", title: "靖康之变与南宋偏安", year: "1127起", sub: "靖康之耻、岳飞之死与崖山蹈海", ready: true }
+            { id: "china-song-3", title: "靖康之变与南宋偏安", year: "1127起", sub: "靖康之耻、岳飞之死与崖山蹈海", ready: true },
+            { id: "china-song-zhaokuangyin", title: "人物篇 · 赵匡胤", year: "927–976", sub: "黄袍加身后，他如何防止下一个自己出现", ready: true },
+            { id: "china-song-wanganshi", title: "人物篇 · 王安石", year: "1021–1086", sub: "当一个改革者试图重新设计国家", ready: true },
+            { id: "china-song-sushi", title: "人物篇 · 苏轼", year: "1037–1101", sub: "一生被贬，却把困顿重新过成名篇", ready: true },
+            { id: "china-song-liqingzhao", title: "人物篇 · 李清照", year: "1084–约1155", sub: "从赌书泼茶到山河破碎，她不只写愁", ready: true },
+            { id: "china-song-xinqiji", title: "人物篇 · 辛弃疾", year: "1140–1207", sub: "最会打仗的词人，最会写词的将军", ready: true }
           ]
         },
         {
           id: "china-yuan", name: "元", emoji: "⛺", desc: "1271 — 1368 · 从草原到大都",
           articles: [
             { id: "china-yuan-1", title: "元朝：从成吉思汗到忽必烈", year: "1206起", sub: "千户制、行省与纸币：草原如何统治天下", ready: true },
-            { id: "china-yuan-2", title: "元末：纸币崩溃与红巾军", year: "1351起", sub: "石人一只眼：人类第一次纸币崩溃实录", ready: true }
+            { id: "china-yuan-2", title: "元末：纸币崩溃与红巾军", year: "1351起", sub: "石人一只眼：人类第一次纸币崩溃实录", ready: true },
+            { id: "china-yuan-genghis", title: "人物篇 · 成吉思汗", year: "约1162–1227", sub: "从被抛弃的少年到草原征服者：组织与毁灭", ready: true },
+            { id: "china-yuan-kublai", title: "人物篇 · 忽必烈", year: "1215–1294", sub: "从草原大汗到中国皇帝，两种身份如何搭桥", ready: true }
           ]
         },
         {
@@ -181,7 +198,9 @@ window.XLM_DATA = {
             { id: "china-qing-yongzheng", title: "人物篇 · 雍正", year: "1678–1735", sub: "篡位传说背后，是十三年不眠不休的改革", ready: true },
             { id: "china-qing-qianlong", title: "人物篇 · 乾隆", year: "1711–1799", sub: "十全老人：盛世怎样在掌声中悄悄转过拐点", ready: true },
             { id: "china-qing-puyi", title: "人物篇 · 溥仪", year: "1906–1967", sub: "三次登基三次退场：一个皇帝被时代反复改写", ready: true },
-            { id: "china-qing-cixi", title: "人物篇 · 慈禧太后", year: "1835–1908", sub: "垂帘、变法与庚子：妖后标签之外的真实掌权者", ready: true }
+            { id: "china-qing-cixi", title: "人物篇 · 慈禧太后", year: "1835–1908", sub: "垂帘、变法与庚子：妖后标签之外的真实掌权者", ready: true },
+            { id: "china-qing-lihongzhang", title: "人物篇 · 李鸿章", year: "1823–1901", sub: "晚清裱糊匠：近代化、条约与该由谁承担的账", ready: true },
+            { id: "china-qing-jiawu", title: "事件篇 · 甲午战争", year: "1894–1895", sub: "亚洲第一舰队，为何沉入制度的裂缝", ready: true }
           ]
         },
         {
@@ -192,7 +211,10 @@ window.XLM_DATA = {
             { id: "china-roc-sunyatsen", title: "人物篇 · 孙中山", year: "1866–1925", sub: "十次起义与一次成功：革命先行者也曾不断失败", ready: true },
             { id: "china-roc-chiang", title: "人物篇 · 蒋介石", year: "1887–1975", sub: "北伐、抗战与败退台湾：功过最难一笔写完的人", ready: true },
             { id: "china-roc-mao", title: "人物篇 · 毛泽东", year: "1893–1976", sub: "从韶山到天安门：革命、建国与巨大争议", ready: true },
-            { id: "china-roc-resistance", title: "事件篇 · 中国抗日战争", year: "1931–1945", sub: "十四年血火：一个积弱国家怎样撑到最后", ready: true }
+            { id: "china-roc-resistance", title: "事件篇 · 中国抗日战争", year: "1931–1945", sub: "十四年血火：一个积弱国家怎样撑到最后", ready: true },
+            { id: "china-roc-luxun", title: "人物篇 · 鲁迅", year: "1881–1936", sub: "弃医从文不是不想救人，而是换了一把手术刀", ready: true },
+            { id: "china-roc-xuzhimo", title: "人物篇 · 徐志摩", year: "1897–1931", sub: "轻轻的诗句背后，是从不轻的人生责任", ready: true },
+            { id: "china-roc-linhuiyin", title: "人物篇 · 林徽因", year: "1904–1955", sub: "她最重要的作品，从来不是一段爱情传闻", ready: true }
           ]
         }
       ]
