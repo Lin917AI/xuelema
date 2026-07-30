@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.4",
-  batch: "人物篇 · 孔子与老子",
+  version: "1.5",
+  batch: "人物群像 · 帝王将相与诗人",
 
   categories: [
     {
@@ -74,7 +74,8 @@ window.XLM_DATA = {
           id: "china-qin", name: "秦", emoji: "👑", desc: "前 221 — 前 207 · 短暂而深刻的第一帝国",
           articles: [
             { id: "china-qin-1", title: "商鞅变法：强国方案与它的代价", year: "前356起", sub: "徙木立信、作法自毙：一场改变中国底色的改革", ready: true },
-            { id: "china-qin-2", title: "秦始皇：统一六国与二世而亡", year: "前221起", sub: "千古一帝与十五年而亡：制度活了两千年", ready: true }
+            { id: "china-qin-2", title: "秦始皇：统一六国与二世而亡", year: "前221起", sub: "千古一帝与十五年而亡：制度活了两千年", ready: true },
+            { id: "china-qin-qinshihuang", title: "人物篇 · 秦始皇", year: "前259–前210", sub: "人质之子、千古一帝与求仙路上的孤独者", ready: true }
           ]
         },
         {
@@ -82,14 +83,23 @@ window.XLM_DATA = {
           articles: [
             { id: "china-han-1", title: "楚汉相争与文景之治", year: "前202起", sub: "会用人的赢了会打仗的，休养生息攒出第一个盛世", ready: true },
             { id: "china-han-2", title: "汉武帝：极盛的账单", year: "前141起", sub: "封狼居胥的荣光，与'户口减半'的账单", ready: true },
-            { id: "china-han-3", title: "光武中兴与东汉的落幕", year: "25起", sub: "最温和的开国皇帝，与外戚宦官的死循环", ready: true }
+            { id: "china-han-3", title: "光武中兴与东汉的落幕", year: "25起", sub: "最温和的开国皇帝，与外戚宦官的死循环", ready: true },
+            { id: "china-han-liubang", title: "人物篇 · 刘邦", year: "前256–前195", sub: "四十八岁起兵：一个总打败仗的人为什么赢到最后", ready: true },
+            { id: "china-han-xiangyu", title: "人物篇 · 项羽", year: "前232–前202", sub: "力拔山兮气盖世：战神、虞姬与不会复盘的霸王", ready: true },
+            { id: "china-han-hanwudi", title: "人物篇 · 汉武帝", year: "前156–前87", sub: "从金屋藏娇到轮台罪己：雄才大略的全部账单", ready: true },
+            { id: "china-han-huoqubing", title: "人物篇 · 霍去病", year: "前140–前117", sub: "十八岁封侯，二十三岁谢幕：最耀眼也最短暂的将星", ready: true }
           ]
         },
         {
           id: "china-3k", name: "三国", emoji: "🪶", desc: "220 — 280 · 最出名的乱世",
           articles: [
             { id: "china-3k-1", title: "从黄巾到赤壁：三分天下", year: "184起", sub: "烧掉那箱信：官渡、隆中对与赤壁", ready: true },
-            { id: "china-3k-2", title: "三国归晋：谁笑到了最后", year: "220起", sub: "鞠躬尽瘁者与装病等待者，谁笑到最后", ready: true }
+            { id: "china-3k-2", title: "三国归晋：谁笑到了最后", year: "220起", sub: "鞠躬尽瘁者与装病等待者，谁笑到最后", ready: true },
+            { id: "china-3k-caocao", title: "人物篇 · 曹操", year: "155–220", sub: "治世能臣还是乱世奸雄？诗人、枭雄与背锅最多的人", ready: true },
+            { id: "china-3k-zhugeliang", title: "人物篇 · 诸葛亮", year: "181–234", sub: "隆中对、空城计与出师表：真实的他比传说更动人", ready: true },
+            { id: "china-3k-liubei", title: "人物篇 · 刘备", year: "161–223", sub: "屡败屡战的织席少年，靠什么换来一群人的忠诚", ready: true },
+            { id: "china-3k-sunquan", title: "人物篇 · 孙权", year: "182–252", sub: "十九岁接班、坐断东南：守成高手为何晚年失控", ready: true },
+            { id: "china-3k-simayi", title: "人物篇 · 司马懿", year: "179–251", sub: "熬过曹氏四代：忍耐、装病与高平陵的最后一击", ready: true }
           ]
         },
         {
@@ -121,7 +131,13 @@ window.XLM_DATA = {
           articles: [
             { id: "china-tang-1", title: "玄武门与贞观之治", year: "618起", sub: "血腥的开局，克制的盛世：以人为镜", ready: true },
             { id: "china-tang-2", title: "开元盛世与安史之乱", year: "713起", sub: "从开元全盛到马嵬驿：巅峰跌落只用一年", ready: true },
-            { id: "china-tang-3", title: "藩镇、黄巢与大唐落幕", year: "763起", sub: "藩镇、宦官、党争，与一个落第考生的复仇", ready: true }
+            { id: "china-tang-3", title: "藩镇、黄巢与大唐落幕", year: "763起", sub: "藩镇、宦官、党争，与一个落第考生的复仇", ready: true },
+            { id: "china-tang-lishimin", title: "人物篇 · 李世民", year: "598–649", sub: "玄武门的血与贞观的光：一个明君如何面对原罪", ready: true },
+            { id: "china-tang-lilongji", title: "人物篇 · 李隆基", year: "685–762", sub: "前半生开创盛世，后半生亲手失去它", ready: true },
+            { id: "china-tang-wuzetian", title: "人物篇 · 武则天", year: "624–705", sub: "从才人到女皇：无字碑为什么比颂词更有力量", ready: true },
+            { id: "china-tang-libai", title: "人物篇 · 李白", year: "701–762", sub: "诗仙不是只会喝酒：天才、狂气与一生求仕不得", ready: true },
+            { id: "china-tang-dufu", title: "人物篇 · 杜甫", year: "712–770", sub: "一个总在失业的父亲，如何写成中国人的诗史", ready: true },
+            { id: "china-tang-wangwei", title: "人物篇 · 王维", year: "约701–761", sub: "诗中有画：盛唐最安静的人，也经历过最喧闹的乱世", ready: true }
           ]
         },
         {
@@ -150,7 +166,9 @@ window.XLM_DATA = {
           articles: [
             { id: "china-ming-1", title: "明朝早期：洪武与永乐", year: "1368起", sub: "乞丐开国，藩王夺位：'勉之！世子多疾'", ready: true },
             { id: "china-ming-2", title: "明朝中期：从土木堡到张居正", year: "1449起", sub: "皇帝被俘、于谦救国，与一场人亡政息的改革", ready: true },
-            { id: "china-ming-3", title: "明朝晚期：万历、崇祯与终局", year: "1573起", sub: "三十年不上朝的皇帝，和勤政亡国的皇帝", ready: true }
+            { id: "china-ming-3", title: "明朝晚期：万历、崇祯与终局", year: "1573起", sub: "三十年不上朝的皇帝，和勤政亡国的皇帝", ready: true },
+            { id: "china-ming-zhuyuanzhang", title: "人物篇 · 朱元璋", year: "1328–1398", sub: "从草席葬亲到大明开国：苦难怎样塑造也扭曲一个人", ready: true },
+            { id: "china-ming-zhudi", title: "人物篇 · 朱棣", year: "1360–1424", sub: "靖难、永乐与“世子多疾”：抢来的皇位如何证明自己", ready: true }
           ]
         },
         {
@@ -158,14 +176,23 @@ window.XLM_DATA = {
           articles: [
             { id: "china-qing-1", title: "清朝早期：入关与康雍乾", year: "1644起", sub: "擒鳌拜、摊丁入亩与人口爆炸：盛世的成色", ready: true },
             { id: "china-qing-2", title: "清朝中期：鸦片战争与洋务运动", year: "1840起", sub: "虎门销烟、火烧圆明园与只换零件的自救", ready: true },
-            { id: "china-qing-3", title: "清朝晚期：甲午、新政与辛亥", year: "1894起", sub: "甲午之败、科举之废与武昌一声枪响", ready: true }
+            { id: "china-qing-3", title: "清朝晚期：甲午、新政与辛亥", year: "1894起", sub: "甲午之败、科举之废与武昌一声枪响", ready: true },
+            { id: "china-qing-kangxi", title: "人物篇 · 康熙", year: "1654–1722", sub: "少年擒鳌拜，晚年困于九子夺嫡：六十一年帝王课", ready: true },
+            { id: "china-qing-yongzheng", title: "人物篇 · 雍正", year: "1678–1735", sub: "篡位传说背后，是十三年不眠不休的改革", ready: true },
+            { id: "china-qing-qianlong", title: "人物篇 · 乾隆", year: "1711–1799", sub: "十全老人：盛世怎样在掌声中悄悄转过拐点", ready: true },
+            { id: "china-qing-puyi", title: "人物篇 · 溥仪", year: "1906–1967", sub: "三次登基三次退场：一个皇帝被时代反复改写", ready: true },
+            { id: "china-qing-cixi", title: "人物篇 · 慈禧太后", year: "1835–1908", sub: "垂帘、变法与庚子：妖后标签之外的真实掌权者", ready: true }
           ]
         },
         {
           id: "china-roc", name: "中华民国", emoji: "🚂", desc: "1912 — 1949 · 大转型时代",
           articles: [
             { id: "china-roc-1", title: "辛亥革命与民国初年", year: "1911起", sub: "宋教仁之死、洪宪闹剧与新文化运动", ready: true },
-            { id: "china-roc-2", title: "从北伐到 1949", year: "1926起", sub: "十四年抗战，与一场货币崩溃的倒计时", ready: true }
+            { id: "china-roc-2", title: "从北伐到 1949", year: "1926起", sub: "十四年抗战，与一场货币崩溃的倒计时", ready: true },
+            { id: "china-roc-sunyatsen", title: "人物篇 · 孙中山", year: "1866–1925", sub: "十次起义与一次成功：革命先行者也曾不断失败", ready: true },
+            { id: "china-roc-chiang", title: "人物篇 · 蒋介石", year: "1887–1975", sub: "北伐、抗战与败退台湾：功过最难一笔写完的人", ready: true },
+            { id: "china-roc-mao", title: "人物篇 · 毛泽东", year: "1893–1976", sub: "从韶山到天安门：革命、建国与巨大争议", ready: true },
+            { id: "china-roc-resistance", title: "事件篇 · 中国抗日战争", year: "1931–1945", sub: "十四年血火：一个积弱国家怎样撑到最后", ready: true }
           ]
         }
       ]
