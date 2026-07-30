@@ -80,8 +80,8 @@
     });
 
     var h = '<div class="view">';
-    h += '<header class="hero"><h1>学了么</h1>' +
-      "<p>像听长辈讲故事一样，读懂历史与经济。</p>" +
+    h += '<header class="hero"><h1><span>学</span><span>了</span><span>么</span></h1>' +
+      "<p>每天读懂一段历史、一次经济浪潮，把好奇变成判断力。</p>" +
       '<span class="progress">已更新 ' + done + " 篇 · 规划中 " + (total - done) + " 篇</span></header>";
 
     DATA.categories.forEach(function (cat) {
@@ -111,7 +111,7 @@
       cat.subs.forEach(function (sub) {
         var rc = readyCount(sub.articles);
         h += '<div class="cat-card" data-nav="#/c/' + cat.id + "/" + sub.id + '">' +
-          '<div class="cat-emoji">' + cat.emoji + "</div>" +
+          '<div class="cat-emoji">' + esc(sub.emoji || cat.emoji) + "</div>" +
           '<div class="cat-info"><div class="name">' + esc(sub.name) + "</div>" +
           '<div class="tag">' + esc(sub.desc || "") + "</div></div>" +
           '<div class="cat-count">' + (rc > 0 ? rc + " 篇" : "筹备中") + "</div>" +
@@ -139,15 +139,21 @@
   function articleRows(list) {
     var h = "";
     (list || []).forEach(function (a) {
+      var metaBadge = a.flag
+        ? '<div class="event-meta" title="' + esc(a.country || "") + '">' +
+            '<div class="country-mark"><span class="country-flag" aria-hidden="true">' + esc(a.flag) + "</span>" +
+            '<span class="country-name">' + esc(a.country || "") + "</span></div>" +
+            '<div class="event-year">' + esc(a.year) + "</div></div>"
+        : '<div class="year-badge">' + esc(a.year) + "</div>";
       if (a.ready && ARTS[a.id]) {
         h += '<div class="row-card" data-nav="#/a/' + a.id + '">' +
-          '<div class="year-badge">' + esc(a.year) + "</div>" +
+          metaBadge +
           '<div class="row-main"><div class="row-title">' + esc(a.title) + "</div>" +
           (a.sub ? '<div class="row-sub">' + esc(a.sub) + "</div>" : "") +
           "</div>" + '<div class="chevron">›</div></div>';
       } else {
         h += '<div class="row-card soon" data-soon="1">' +
-          '<div class="year-badge">' + esc(a.year) + "</div>" +
+          metaBadge +
           '<div class="row-main"><div class="row-title">' + esc(a.title) + "</div></div>" +
           '<div class="badge-soon">待更新</div></div>';
       }

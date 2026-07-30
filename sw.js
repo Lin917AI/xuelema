@@ -4,7 +4,7 @@
    每次发布新内容时，把下面的版本号加 1（如 v1 → v2）。
    ========================================================== */
 
-var CACHE_NAME = "xuelema-v3";
+var CACHE_NAME = "xuelema-v4";
 
 var ASSETS = [
   "./",
@@ -20,9 +20,9 @@ var ASSETS = [
   "./content-powers.js",
   "./content-people.js",
   "./manifest.webmanifest",
-  "./icon-192.png",
-  "./icon-512.png",
-  "./apple-touch-icon.png"
+  "./icon-192-v2.png",
+  "./icon-512-v2.png",
+  "./apple-touch-icon-v2.png"
 ];
 
 self.addEventListener("install", function (e) {
