@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.6",
-  batch: "人物群像 · 变法名臣与文人风骨",
+  version: "1.7",
+  batch: "世界历史 · 从文明曙光到全球互依",
 
   categories: [
     {
@@ -227,26 +227,50 @@ window.XLM_DATA = {
       tagline: "看懂世界如何走到今天",
       subs: [
         {
-          id: "wh-ancient", name: "古代与中世纪", desc: "帝国的兴衰逻辑",
+          id: "wh-ancient", name: "古代文明与古典世界", emoji: "🏛️", desc: "城市、民主与帝国的最初实验",
           articles: [
-            { id: "wh-rome",    title: "罗马帝国的兴衰", year: "前27起", sub: "", ready: false },
-            { id: "wh-mongol",  title: "蒙古帝国与草原征服", year: "1206起", sub: "", ready: false }
+            { id: "wh-civilizations", title: "最早的文明：人类为什么要挤进城市", year: "约前3500起", sub: "文字先替粮仓记账，城市同时发明协作、阶层与国家", ready: true },
+            { id: "wh-greece", title: "古希腊：民主、哲学与不民主的另一面", year: "前8世纪起", sub: "从雅典公民大会到亚历山大：追问比答案活得更久", ready: true },
+            { id: "wh-rome", title: "罗马帝国：一座城怎样统治地中海", year: "前509起", sub: "共和国为何被胜利撑破，西罗马又为何不是一天倒下", ready: true }
           ]
         },
         {
-          id: "wh-modern", name: "近代转折", desc: "现代世界的诞生",
+          id: "wh-medieval", name: "中世纪与欧亚交流", emoji: "🧭", desc: "信仰、商路、征服与瘟疫",
           articles: [
-            { id: "wh-renaissance", title: "文艺复兴与地理大发现", year: "14世纪起", sub: "", ready: false },
-            { id: "wh-france",      title: "法国大革命", year: "1789起", sub: "", ready: false },
-            { id: "wh-america",     title: "美国的诞生与崛起", year: "1776起", sub: "", ready: false }
+            { id: "wh-islam-silk", title: "丝路与伊斯兰黄金时代", year: "7世纪起", sub: "从巴格达到长安：知识如何穿过语言和帝国边界", ready: true },
+            { id: "wh-mongol", title: "蒙古帝国：马背征服重新连接欧亚", year: "1206起", sub: "驿站让商人与技术走得更远，也让战争和疾病更快", ready: true },
+            { id: "wh-plague", title: "十字军与黑死病", year: "1095起", sub: "信仰远征、地中海碰撞与一场重估劳动价值的瘟疫", ready: true }
           ]
         },
         {
-          id: "wh-20c", name: "二十世纪", desc: "战争与秩序重建",
+          id: "wh-modern", name: "近代革命与新世界", emoji: "⛵", desc: "印刷、远航与公民政治",
           articles: [
-            { id: "wh-ww1",     title: "第一次世界大战", year: "1914起", sub: "", ready: false },
-            { id: "wh-ww2",     title: "第二次世界大战", year: "1939起", sub: "", ready: false },
-            { id: "wh-coldwar", title: "冷战始末", year: "1947起", sub: "", ready: false }
+            { id: "wh-renaissance", title: "文艺复兴与宗教改革", year: "14世纪起", sub: "一张印刷纸如何挑战旧权威，也把争论交给更多人", ready: true },
+            { id: "wh-exploration", title: "大航海与殖民征服", year: "1492起", sub: "世界连成一体时，白银、土豆、病菌与奴役同船而来", ready: true },
+            { id: "wh-america", title: "美国的诞生与崛起", year: "1776起", sub: "自由宣言为何容得下奴隶制，一个国家如何追赶自己的理想", ready: true },
+            { id: "wh-france", title: "法国大革命与拿破仑", year: "1789起", sub: "自由平等为何走进断头台，革命成果又如何传遍欧洲", ready: true }
+          ]
+        },
+        {
+          id: "wh-industrial-age", name: "工业与帝国时代", emoji: "⚙️", desc: "机器、资本与被瓜分的世界",
+          articles: [
+            { id: "wh-industrial", title: "工业革命：机器与钟表接管生活", year: "约1760起", sub: "生产率、工厂纪律、童工与大众生活改善之间的长路", ready: true },
+            { id: "wh-imperialism", title: "帝国主义与殖民体系", year: "约1870起", sub: "地图上的直线是谁画的，铁路又首先通向谁的港口", ready: true }
+          ]
+        },
+        {
+          id: "wh-worldwars", name: "两次世界大战", emoji: "🕊️", desc: "总体战、灭绝与旧秩序崩塌",
+          articles: [
+            { id: "wh-ww1", title: "第一次世界大战", year: "1914–1918", sub: "一个月里，联盟、动员表和恐惧怎样把欧洲锁进战争", ready: true },
+            { id: "wh-ww2", title: "第二次世界大战", year: "1931/1939–1945", sub: "侵略、种族主义、大屠杀与核时代共同改写世界", ready: true }
+          ]
+        },
+        {
+          id: "wh-postwar", name: "冷战、独立与全球化", emoji: "🔗", desc: "超级大国、民族自决与互依世界",
+          articles: [
+            { id: "wh-coldwar", title: "冷战始末", year: "1947–1991", sub: "美苏不敢直接开战，热战为何却落在别人的土地", ready: true },
+            { id: "wh-decolonization", title: "去殖民化：地图突然多出许多国家", year: "1945起", sub: "独立不是帝国赠礼，升旗以后还要接手旧边界和经济结构", ready: true },
+            { id: "wh-europe-global", title: "欧洲一体化与全球化", year: "1950起", sub: "把煤钢绑在一起阻止战争，供应链又如何连接和放大风险", ready: true }
           ]
         }
       ]
