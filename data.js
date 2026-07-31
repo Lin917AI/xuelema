@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.8",
-  batch: "世界经济发展 · 从增长起点到绿色转型",
+  version: "1.9",
+  batch: "全站完成 · 货币、权力与改变世界的人",
 
   categories: [
     {
@@ -330,12 +330,38 @@ window.XLM_DATA = {
       name: "货币史",
       emoji: "🪙",
       tagline: "钱本身的故事",
-      articles: [
-        { id: "money-origin",  title: "货币的诞生：从贝壳到黄金", year: "远古起", sub: "", ready: false },
-        { id: "money-jiaozi",  title: "交子：世界最早的纸币", year: "1024", sub: "", ready: false },
-        { id: "money-gold",    title: "金本位的兴衰", year: "1816起", sub: "", ready: false },
-        { id: "money-hyper",   title: "恶性通胀简史：魏玛与津巴布韦", year: "1923起", sub: "", ready: false },
-        { id: "money-digital", title: "数字货币时代", year: "2009起", sub: "", ready: false }
+      subs: [
+        {
+          id: "money-birth", name: "钱从哪里来", emoji: "🐚", desc: "交换、国家与信用如何把普通东西变成钱",
+          articles: [
+            { id: "money-origin", title: "货币的诞生：欠条可能早于硬币", year: "远古起", sub: "从贝壳、账本到黄金，钱不是一条简单的以物易物进化线", ready: true },
+            { id: "money-coins", title: "铸币与帝国：一枚硬币上的国家信用", year: "约前7世纪起", sub: "国王把头像印上金属，也把税收与权力装进口袋", ready: true },
+            { id: "money-jiaozi", title: "交子：纸为什么能比铜钱更值钱", year: "1024起", sub: "成都商人的存款凭证，怎样成为政府发行的纸币", ready: true },
+            { id: "money-banks", title: "银行如何凭一张欠条创造钱", year: "17世纪起", sub: "贷款不是把别人的存款搬给你，而是同时创造存款和债务", ready: true }
+          ]
+        },
+        {
+          id: "money-trust", name: "信用与货币秩序", emoji: "🏦", desc: "黄金、央行与法币如何维持共同信任",
+          articles: [
+            { id: "money-gold", title: "金本位的兴衰：黄金纪律与黄金枷锁", year: "1816起", sub: "固定汇率带来稳定，也会在危机时逼国家选择失业", ready: true },
+            { id: "money-centralbank", title: "中央银行：救火队长为什么也会纵火", year: "1694起", sub: "最后贷款人、利率与通胀，现代央行怎样在两种错误间走钢丝", ready: true },
+            { id: "money-fiat", title: "法币：一张纸为何不靠黄金也有价值", year: "1971起", sub: "税收、法律、生产能力和信任共同支撑今天的钱", ready: true }
+          ]
+        },
+        {
+          id: "money-crises", name: "通胀与货币危机", emoji: "🔥", desc: "钱变薄时，社会关系为什么也会裂开",
+          articles: [
+            { id: "money-inflation", title: "通胀到底偷走了什么", year: "古今", sub: "不是所有涨价都一样：需求、供给、工资与预期如何接力", ready: true },
+            { id: "money-hyper", title: "恶性通胀：魏玛、津巴布韦与信任崩塌", year: "1923起", sub: "工资一天发两次，人们为什么拿到钱就立刻冲向商店", ready: true }
+          ]
+        },
+        {
+          id: "money-digital-age", name: "数字货币时代", emoji: "📲", desc: "代码能改写支付，却不能凭空制造信用",
+          articles: [
+            { id: "money-bitcoin", title: "比特币：没有央行的数字黄金实验", year: "2009起", sub: "稀缺由代码保证，但价格、治理与能源问题仍由人承担", ready: true },
+            { id: "money-digital", title: "移动支付、稳定币与央行数字货币", year: "21世纪", sub: "扫一下就到账的背后，究竟是谁的负债、谁来兜底", ready: true }
+          ]
+        }
       ]
     },
 
@@ -344,12 +370,39 @@ window.XLM_DATA = {
       name: "大国博弈",
       emoji: "♟️",
       tagline: "牌桌上的国家们",
-      articles: [
-        { id: "powers-coldwar", title: "冷战经济战：不开枪的较量", year: "1947起", sub: "", ready: false },
-        { id: "powers-plaza",   title: "广场协议：汇率战经典一役", year: "1985", sub: "", ready: false },
-        { id: "powers-empire",  title: "大英帝国的兴衰", year: "1688起", sub: "", ready: false },
-        { id: "powers-ussr",    title: "苏联解体：超级大国的落幕", year: "1991", sub: "", ready: false },
-        { id: "powers-trade",   title: "中美贸易战", year: "2018起", sub: "", ready: false }
+      subs: [
+        {
+          id: "powers-empires", name: "霸权怎样炼成", emoji: "⚓", desc: "海权、工业、金融与帝国的兴衰",
+          articles: [
+            { id: "powers-dutch", title: "荷兰霸权：小国怎样成为世界中间商", year: "17世纪", sub: "证券交易所、东印度公司与海上帝国的第一套资本操作系统", ready: true },
+            { id: "powers-empire", title: "大英帝国：日不落的机器与阴影", year: "1688起", sub: "海军、信用、工业和殖民暴力共同支撑的全球体系", ready: true },
+            { id: "powers-us-rise", title: "美国崛起：从边缘共和国到超级大国", year: "1776起", sub: "大陆市场、移民、战争与工业金融如何改变世界权力中心", ready: true }
+          ]
+        },
+        {
+          id: "powers-coldwar-era", name: "冷战棋局", emoji: "☢️", desc: "援助、军备、代理战争与核边缘博弈",
+          articles: [
+            { id: "powers-marshall", title: "马歇尔计划：援助也是战略投资", year: "1948起", sub: "美国为什么花钱帮助竞争者重建，苏联又为何拒绝加入", ready: true },
+            { id: "powers-coldwar", title: "冷战经济战：不开枪也能拖垮对手", year: "1947起", sub: "军备、技术禁运、宣传和生活水平组成的四十年耐力赛", ready: true },
+            { id: "powers-cuban", title: "古巴导弹危机：十三天里如何避免世界末日", year: "1962", sub: "两封信、一个秘密交换与最危险时刻里的克制", ready: true },
+            { id: "powers-ussr", title: "苏联解体：超级大国为何突然散场", year: "1991", sub: "油价、改革、民族问题和制度失灵如何相互放大", ready: true }
+          ]
+        },
+        {
+          id: "powers-economic-weapons", name: "货币、能源与制裁", emoji: "🧰", desc: "不用宣战也能施压的国家工具箱",
+          articles: [
+            { id: "powers-oil", title: "石油武器：谁捏住了工业世界的油管", year: "1973起", sub: "禁运、战略储备与能源转型背后的国家安全账", ready: true },
+            { id: "powers-plaza", title: "广场协议：汇率桌上的五国交易", year: "1985", sub: "美元贬值与日元升值是真的，日本泡沫却不是一个协议就能解释", ready: true },
+            { id: "powers-sanctions", title: "金融制裁与 SWIFT：现代战争的隐形封锁", year: "21世纪", sub: "冻结资产、切断信息与二级制裁怎样改变企业选择", ready: true }
+          ]
+        },
+        {
+          id: "powers-tech", name: "贸易与科技竞争", emoji: "🧠", desc: "关税之外，标准、芯片和人才才是深水区",
+          articles: [
+            { id: "powers-trade", title: "中美贸易与科技博弈", year: "2018起", sub: "从关税清单到产业补贴，竞争为何进入长期化", ready: true },
+            { id: "powers-chips", title: "芯片战争：一粒硅里的国家安全", year: "21世纪", sub: "设计、设备、制造各卡一关，没有国家能独自完成整条链", ready: true }
+          ]
+        }
       ]
     },
 
@@ -358,13 +411,41 @@ window.XLM_DATA = {
       name: "历史人物",
       emoji: "👤",
       tagline: "商业与权力的弄潮儿",
-      articles: [
-        { id: "people-lvbuwei",     title: "吕不韦：把王位当生意做", year: "战国", sub: "", ready: false },
-        { id: "people-fanli",       title: "范蠡：三散家财的商圣", year: "春秋", sub: "", ready: false },
-        { id: "people-huxueyan",    title: "胡雪岩：红顶商人的起落", year: "晚清", sub: "", ready: false },
-        { id: "people-rockefeller", title: "洛克菲勒：石油帝国", year: "19世纪", sub: "", ready: false },
-        { id: "people-morgan",      title: "J.P.摩根：一个人的央行", year: "19世纪", sub: "", ready: false },
-        { id: "people-rothschild",  title: "罗斯柴尔德家族", year: "18世纪起", sub: "", ready: false }
+      subs: [
+        {
+          id: "people-china-business", name: "中国商道与权力", emoji: "🧭", desc: "进退、信用与官商边界",
+          articles: [
+            { id: "people-fanli", title: "范蠡：最会赢的人为什么总在巅峰离场", year: "春秋", sub: "助越灭吴、三次聚财又散财，传奇背后的进退智慧", ready: true },
+            { id: "people-lvbuwei", title: "吕不韦：把王位当作一笔风险投资", year: "战国", sub: "奇货可居、编书治国与政治投资无法退出的结局", ready: true },
+            { id: "people-huxueyan", title: "胡雪岩：红顶商人的信用与雪崩", year: "1823–1885", sub: "借官势做大，也因官场换风和流动性危机一夜倾覆", ready: true },
+            { id: "people-zhangjian", title: "张謇：状元为什么转身去办厂", year: "1853–1926", sub: "实业、教育和地方建设，一场把利润变成社会能力的实验", ready: true }
+          ]
+        },
+        {
+          id: "people-financiers", name: "银行家与金融王朝", emoji: "🏛️", desc: "信息、信用与危机中的私人权力",
+          articles: [
+            { id: "people-medici", title: "美第奇家族：银行账本怎样赞助文艺复兴", year: "14–16世纪", sub: "金融、艺术与政治互相抬轿，也互相埋雷", ready: true },
+            { id: "people-rothschild", title: "罗斯柴尔德家族：真正的金融网络与夸张传说", year: "18世纪起", sub: "五兄弟、跨国信息与国家债券，事实已经足够精彩", ready: true },
+            { id: "people-morgan", title: "J.P.摩根：一个人的央行", year: "1837–1913", sub: "1907年把银行家锁进书房，逼出一场私人救市", ready: true }
+          ]
+        },
+        {
+          id: "people-industry", name: "工业巨头与垄断", emoji: "🏭", desc: "规模、效率与权力边界",
+          articles: [
+            { id: "people-rockefeller", title: "洛克菲勒：把混乱石油业做成一台机器", year: "1839–1937", sub: "低成本、铁路折扣、垄断与科学慈善的双面遗产", ready: true },
+            { id: "people-carnegie", title: "卡内基：钢铁大王与财富的福音", year: "1835–1919", sub: "从电报员到工业巨头，捐图书馆能否抵消工厂里的冲突", ready: true },
+            { id: "people-ford", title: "亨利·福特：让汽车走进普通家庭", year: "1863–1947", sub: "流水线、五美元日薪与一个效率天才的偏执阴影", ready: true }
+          ]
+        },
+        {
+          id: "people-brands", name: "品牌、创意与新规则", emoji: "💡", desc: "需求可以被发现，也可以被重新发明",
+          articles: [
+            { id: "people-walker", title: "沃克夫人：从洗衣工到商业网络创建者", year: "1867–1919", sub: "她卖的不只是护发品，更是一条让黑人女性独立谋生的路", ready: true },
+            { id: "people-chanel", title: "香奈儿：解放女性衣橱，也留下战争阴影", year: "1883–1971", sub: "把舒适做成奢侈品，品牌传奇为何不能删掉争议章节", ready: true },
+            { id: "people-disney", title: "华特·迪士尼：把故事变成一套体验机器", year: "1901–1966", sub: "破产、米老鼠、白雪公主与乐园背后的高风险下注", ready: true },
+            { id: "people-jobs", title: "史蒂夫·乔布斯：品味、控制与现实扭曲力场", year: "1955–2011", sub: "被自己公司赶走后，他怎样带着失败重新发明苹果", ready: true }
+          ]
+        }
       ]
     }
   ]
