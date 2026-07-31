@@ -7,7 +7,7 @@
   <meta name="description" content="每天读懂一段历史、一次经济浪潮，把好奇变成判断力。">
 
   <!-- PWA -->
-  <link rel="manifest" href="./manifest.webmanifest?v=1.6">
+  <link rel="manifest" href="./manifest.webmanifest?v=1.7">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F1EA">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131315">
 
@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./apple-touch-icon-v2.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-v2.png">
 
-  <link rel="stylesheet" href="./styles.css?v=1.6">
+  <link rel="stylesheet" href="./styles.css?v=1.7">
 </head>
 <body>
   <!-- 顶栏 -->
@@ -37,24 +37,24 @@
   </main>
 
   <!-- 目录数据 -->
-  <script src="./data.js?v=1.6"></script>
+  <script src="./data.js?v=1.7"></script>
   <!-- 各分类内容（按批次更新，替换对应文件即可） -->
   <script src="./content-crisis.js"></script>
   <script src="./content-china.js"></script>
-  <script src="./content-biographies.js?v=1.6"></script>
-  <script src="./content-worldhist.js"></script>
+  <script src="./content-biographies.js?v=1.7"></script>
+  <script src="./content-worldhist.js?v=1.7"></script>
   <script src="./content-econ.js"></script>
   <script src="./content-money.js"></script>
   <script src="./content-powers.js"></script>
   <script src="./content-people.js"></script>
   <!-- 导航与渲染 -->
-  <script src="./app.js?v=1.6"></script>
+  <script src="./app.js?v=1.7"></script>
 
   <!-- 离线缓存 -->
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./sw.js?v=8").catch(function () {});
+        navigator.serviceWorker.register("./sw.js?v=9").catch(function () {});
       });
     }
   </script>
