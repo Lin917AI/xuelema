@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.7",
-  batch: "世界历史 · 从文明曙光到全球互依",
+  version: "1.8",
+  batch: "世界经济发展 · 从增长起点到绿色转型",
 
   categories: [
     {
@@ -281,15 +281,47 @@ window.XLM_DATA = {
       name: "世界经济发展",
       emoji: "📈",
       tagline: "财富从哪里来，到哪里去",
-      articles: [
-        { id: "econ-industrial", title: "工业革命：机器改变世界", year: "1760起", sub: "", ready: false },
-        { id: "econ-colonial",   title: "大航海与殖民贸易", year: "1500起", sub: "", ready: false },
-        { id: "econ-bretton",    title: "布雷顿森林体系：美元登基", year: "1944", sub: "", ready: false },
-        { id: "econ-oil",        title: "石油危机与大滞胀", year: "1973起", sub: "", ready: false },
-        { id: "econ-japan",      title: "日本战后经济奇迹", year: "1950起", sub: "", ready: false },
-        { id: "econ-global",     title: "全球化与产业转移", year: "1980起", sub: "", ready: false },
-        { id: "econ-reform",     title: "中国改革开放", year: "1978起", sub: "", ready: false },
-        { id: "econ-dollar",     title: "美元霸权：印钞机与全世界", year: "1971起", sub: "", ready: false }
+      subs: [
+        {
+          id: "econ-origins", name: "增长的起点", emoji: "🌱", desc: "从土地、远洋到机器大生产",
+          articles: [
+            { id: "econ-agriculture", title: "农业革命与马尔萨斯陷阱", year: "约前10000起", sub: "粮食越来越多，人为什么仍长期没有富起来", ready: true },
+            { id: "econ-colonial", title: "大航海、殖民贸易与第一次全球化", year: "1500起", sub: "香料、白银与奴隶贸易怎样把世界接成一张不平等的网", ready: true },
+            { id: "econ-industrial", title: "工业革命：机器改变世界", year: "约1760起", sub: "蒸汽机没有立刻让工人幸福，却打开了持续增长的大门", ready: true },
+            { id: "econ-massproduction", title: "第二次工业革命与大生产", year: "1870起", sub: "电力、流水线和公司制度怎样把奢侈品变成日用品", ready: true }
+          ]
+        },
+        {
+          id: "econ-orders", name: "危机后的新秩序", emoji: "🏛️", desc: "国家、市场与货币体系的重新分工",
+          articles: [
+            { id: "econ-keynes", title: "大萧条、凯恩斯与福利国家", year: "1929起", sub: "当所有人一起省钱，政府为什么反而要花钱", ready: true },
+            { id: "econ-soviet", title: "苏联计划经济：追赶与瓶颈", year: "1928起", sub: "能造火箭的制度，为何常常造不好一双合脚的鞋", ready: true },
+            { id: "econ-bretton", title: "布雷顿森林体系：美元登基", year: "1944", sub: "44国在山间酒店里，为战后世界设计一套货币交通规则", ready: true },
+            { id: "econ-oil", title: "石油危机与大滞胀", year: "1973起", sub: "油价、工资与预期彼此追赶，旧药方为何突然失效", ready: true }
+          ]
+        },
+        {
+          id: "econ-asia", name: "亚洲增长奇迹", emoji: "🏗️", desc: "后发经济体如何学习、出口与追赶",
+          articles: [
+            { id: "econ-japan", title: "日本战后经济奇迹", year: "1950起", sub: "废墟上的工厂怎样追上世界，又为何走进泡沫", ready: true },
+            { id: "econ-tigers", title: "亚洲四小龙：出口型追赶", year: "1960起", sub: "四地没有抄同一份作业，却都把教育与世界市场变成跳板", ready: true },
+            { id: "econ-reform", title: "中国改革开放", year: "1978起", sub: "从小岗村到深圳，一场先试验再推广的巨大转型", ready: true }
+          ]
+        },
+        {
+          id: "econ-global-money", name: "全球化与货币权力", emoji: "🌐", desc: "供应链、资本流动与美元网络",
+          articles: [
+            { id: "econ-global", title: "全球化与产业转移", year: "1980起", sub: "一部手机跨越多国生产，效率与脆弱性也被同时放大", ready: true },
+            { id: "econ-dollar", title: "美元霸权：印钞机与全世界", year: "1971起", sub: "脱离黄金以后，美元为何没有倒下，反而更加无处不在", ready: true }
+          ]
+        },
+        {
+          id: "econ-next", name: "下一次转型", emoji: "💡", desc: "数据、平台与低碳经济的新规则",
+          articles: [
+            { id: "econ-digital", title: "互联网、平台与数字经济", year: "1990起", sub: "复制成本接近零以后，注意力、数据与网络成了新矿藏", ready: true },
+            { id: "econ-green", title: "气候成本与绿色转型", year: "1992起", sub: "增长不能再把烟囱账单留给未来，转型也不能只让弱者买单", ready: true }
+          ]
+        }
       ]
     },
 
