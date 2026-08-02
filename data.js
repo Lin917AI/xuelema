@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "1.9",
-  batch: "全站完成 · 货币、权力与改变世界的人",
+  version: "2.0",
+  batch: "继续探索 · 把每一篇好奇带进新对话",
 
   categories: [
     {

@@ -32,6 +32,55 @@
       .replace(/"/g, "&quot;");
   }
 
+  function textFromHtml(html) {
+    var box = document.createElement("div");
+    box.innerHTML = html || "";
+    return (box.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  function smartExcerpt(text, limit) {
+    if (text.length <= limit) return text;
+    var cut = text.slice(0, limit);
+    var stop = Math.max(cut.lastIndexOf("。"), cut.lastIndexOf("！"), cut.lastIndexOf("？"));
+    if (stop > Math.round(limit * 0.62)) return cut.slice(0, stop + 1);
+    return cut.replace(/[，、；：]?[^，、；：。！？]{0,22}$/, "") + "……";
+  }
+
+  function buildChatGPTPrompt(art, info) {
+    var category = info.cat.name + (info.sub ? " · " + info.sub.name : "");
+    var articleText = smartExcerpt(textFromHtml(art.body), 330);
+    var people = (art.people || []).slice(0, 5).map(function (p) { return p.name; }).join("、");
+    var insights = (art.insights || []).slice(0, 4).map(function (it) {
+      return it.t + "：" + smartExcerpt(textFromHtml(it.d), 52);
+    }).join("；");
+
+    return [
+      "我刚在「学了么」读完《" + art.title + "》。",
+      "阅读背景：" + category + "；" + (art.kicker || info.meta.year || "历史与经济故事") + "。",
+      "文章摘要：" + articleText,
+      people ? "关键人物：" + people + "。" : "",
+      insights ? "文章给出的核心启示：" + insights : "",
+      "请把以上内容作为这次新对话的学习背景。回答时请保持史实严谨，同时讲得像故事一样清楚、有趣、容易记住；区分确定史实、争议解释和后世传说，并尽量补充人物动机、决策背后的利益、伏笔与反转，以及对今天经济、投资、管理或人生选择的启发。不要机械复述文章。",
+      "如果我还没有补充具体问题，请先给我 3 个最值得继续深挖的问题；如果我在下面补充了问题，请直接回答。",
+      "我的问题："
+    ].filter(Boolean).join("\n\n");
+  }
+
+  function buildExploreCard(id, art, info) {
+    var prompt = buildChatGPTPrompt(art, info);
+    var href = "https://chatgpt.com/?prompt=" + encodeURIComponent(prompt);
+    return '<section class="explore-card" aria-labelledby="explore-title-' + esc(id) + '">' +
+      '<div class="explore-heading"><span class="explore-orb" aria-hidden="true">✦</span>' +
+      '<div><div class="explore-eyebrow">继续探索</div>' +
+      '<h2 id="explore-title-' + esc(id) + '">让好奇心再往前一步</h2></div></div>' +
+      '<p class="explore-copy">这篇文章的背景、人物与核心启示已经整理好。打开新对话后，你可以追问细节，也可以把历史放到今天重新推演。</p>' +
+      '<div class="explore-chips" aria-label="可探索方向"><span>人物细节</span><span>因果推演</span><span>联系今天</span></div>' +
+      '<a class="explore-btn" href="' + esc(href) + '" target="_blank" rel="noopener noreferrer external" aria-describedby="explore-note-' + esc(id) + '">' +
+      '<span class="explore-btn-mark" aria-hidden="true">✦</span><span class="explore-btn-label"><b>继续探索</b><small>问 ChatGPT</small></span><span class="explore-btn-arrow" aria-hidden="true">↗</span></a>' +
+      '<div class="explore-note" id="explore-note-' + esc(id) + '"><span aria-hidden="true"></span>将打开新的 ChatGPT 对话 · 已带入本篇背景</div>' +
+      '</section>';
+  }
+
   function readyCount(list) {
     var n = 0;
     (list || []).forEach(function (a) { if (a.ready) n++; });
@@ -215,6 +264,9 @@
       });
       h += "</section>";
     }
+
+    // ✦ 继续探索：为每篇文章生成专属背景，交给新的 ChatGPT 对话
+    h += buildExploreCard(id, art, info);
 
     // 上一篇 / 下一篇（同列表内已更新的篇目）
     var siblings = (sub ? sub.articles : cat.articles) || [];
