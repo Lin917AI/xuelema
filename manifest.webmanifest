@@ -3,7 +3,7 @@
   "short_name": "学了么",
   "description": "每天读懂一段历史、一次经济浪潮，把好奇变成判断力。",
   "lang": "zh-CN",
-  "start_url": "./?v=1.9",
+  "start_url": "./?v=2.0",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
