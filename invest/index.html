@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f8">
+  <meta name="description" content="从2000年出发，在纳斯达克100、标普500与黄金的真实历史里，亲自做一次投资选择。">
+  <title>投资时光机 · 学了么</title>
+  <link rel="icon" href="../icon-192-v2.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon-v2.png">
+  <link rel="manifest" href="../manifest.webmanifest?v=3.0">
+  <link rel="stylesheet" href="./invest.css?v=3.0">
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner"><a class="back" href="../#/" aria-label="返回学了么首页">‹ 学了么</a><span class="wordmark">投资时光机</span><button class="icon-button" id="method-button" aria-label="查看数据与计算说明">ⓘ</button></div></header>
+  <main class="workspace">
+    <div class="intro"><div><p class="eyebrow">INVEST THROUGH TIME</p><h1>把选择，放回历史。</h1></div><p class="intro-copy">纳斯达克100 · 标普500 · 黄金<br><span id="coverage">正在读取历史数据…</span></p></div>
+    <nav class="tabs" aria-label="投资工具"><button type="button" class="tab active" data-tab="journey" aria-current="page">时光推演</button><button type="button" class="tab" data-tab="annual">历年表现</button><button type="button" class="tab" data-tab="funds">基金观察</button></nav>
+    <section class="surface import-card" id="import-card" aria-labelledby="import-title">
+      <div class="import-heading"><div><p class="eyebrow">PERSONAL DATA · 只在此设备</p><h2 id="import-title">导入一次，开启你的时光旅程</h2></div><span class="privacy-mark" aria-hidden="true">↧</span></div>
+      <p id="import-description">把“投资时光机-个人数据.json”存到手机“文件”中，再点击下方导入。数据只在当前浏览器或主屏幕 App 内处理与保存，不会上传。</p>
+      <div class="import-actions"><label class="primary import-label" for="data-file"><span id="import-label">导入个人数据包</span><input id="data-file" type="file" accept=".json,application/json"></label><button class="text-button" id="export-data" type="button" hidden>备份当前数据</button><button class="text-button" id="import-help" type="button">怎么导入？</button></div>
+      <p id="import-message" class="field-note" role="status">首次需要导入；更新行情时重新导入新包。更换设备或清除网站数据后也需再次导入。</p>
+      <p id="import-error" class="error" role="alert" hidden></p>
+    </section>
+    <div id="load-status" class="status" role="status">正在检查此设备保存的数据…</div>
+    <section id="journey-panel" class="panel" aria-label="时光推演">
+      <div class="setup-layout" id="setup-layout">
+        <form id="setup-form" class="surface setup">
+          <div class="section-heading"><h2>设定你的旅程</h2><span class="small muted">01 / 出发</span></div>
+          <fieldset class="asset-field"><legend>选择定投标的</legend><div class="asset-options">
+            <label class="asset-choice nasdaq"><input type="radio" name="asset" value="nasdaq" checked><span class="asset-icon">N</span><span><b>纳斯达克100</b><small>科技与成长</small></span><span class="radio-mark"></span></label>
+            <label class="asset-choice sp500"><input type="radio" name="asset" value="sp500"><span class="asset-icon">S</span><span><b>标普500</b><small>美国大盘</small></span><span class="radio-mark"></span></label>
+            <label class="asset-choice gold"><input type="radio" name="asset" value="gold"><span class="asset-icon">Au</span><span><b>黄金</b><small>美元计价黄金</small></span><span class="radio-mark"></span></label>
+          </div></fieldset>
+          <div class="date-grid"><label>开始月份<input id="start-month" type="month" value="2000-01" min="2000-01" required></label><div><label for="end-mode">结束时间</label><select id="end-mode"><option value="latest">至最新数据</option><option value="custom">自选结束月份</option></select><label id="custom-end-wrap" class="custom-end" hidden><span class="sr-only">结束月份</span><input id="end-month" type="month" value="2013-12" min="2000-01"></label></div></div>
+          <div class="preset-row" aria-label="快速选择历史区间"><button type="button" data-preset="2000-01,2003-12">互联网泡沫</button><button type="button" data-preset="2003-01,2013-12">2003—2013</button><button type="button" data-preset="2012-01,2020-12">2012—2020</button></div>
+          <div class="money-grid"><label>每月投入<input id="monthly" type="number" min="0" max="100000000" step="any" value="1000" inputmode="decimal" required></label><label>初始资金<input id="initial" type="number" min="0" max="100000000" step="any" value="0" inputmode="decimal" required></label></div>
+          <div class="option-row"><label>计价币种<select id="currency"><option value="CNY">人民币 · 含汇率变化</option><option value="USD">美元</option></select></label><label>模拟年费率 (%)<input id="fee" type="number" min="0" max="10" step="any" value="0" inputmode="decimal"></label></div>
+          <p class="field-note">首月投入＝初始资金＋当月定投。使用月均参考价作教学模拟，不等同于可成交价格或基金真实收益。</p>
+          <p id="form-error" class="error" role="alert" hidden></p>
+          <button id="start-button" class="primary wide" type="submit" disabled><span>出发，走进真实历史</span><span aria-hidden="true">→</span></button>
+        </form>
+        <aside class="journey-intro surface"><div class="orbit-chart" aria-hidden="true"><svg viewBox="0 0 360 190"><defs><linearGradient id="introFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2e716a" stop-opacity=".22"/><stop offset="1" stop-color="#2e716a" stop-opacity="0"/></linearGradient></defs><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13 L352 185 L8 185Z" fill="url(#introFill)"/><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13" fill="none" stroke="#2e716a" stroke-width="3"/><circle cx="163" cy="124" r="7" fill="#c49745" stroke="#fff" stroke-width="3"/></svg><span>体验示意 · 非收益曲线</span></div><p class="eyebrow">在未知里做选择</p><h2>那一刻，你会怎么做？</h2><p>行情按月展开。遇到历史转折，时间会停下来：看看发生了什么，再决定继续、加投、减投，或暂时停投。</p><div class="intro-steps"><div><span>01</span><p>选择从 2000 年起的任意区间</p></div><div><span>02</span><p>在事件发生时，做自己的决定</p></div><div><span>03</span><p>到达终点，再与原计划对照</p></div></div><p class="field-note">过程中只展示已走过的行情。数据口径、成本与计算说明随时可查。</p></aside>
+      </div>
+      <section id="playback" hidden aria-label="历史旅程">
+        <div class="journey-header"><div><p class="eyebrow" id="journey-label"></p><h2 id="current-month">2000 年 1 月</h2><p class="muted" id="journey-range"></p></div><button class="text-button" id="restart-button">重新设定</button></div>
+        <div class="metrics" id="journey-metrics"></div>
+        <div class="surface chart-surface"><div class="chart-heading"><h3>你的资产旅程</h3><div class="chart-legend"><span class="legend-value">账户资产</span><span class="legend-capital">累计投入</span><span class="legend-baseline" id="baseline-legend" hidden>原计划资产</span></div></div><div id="journey-chart" class="chart" role="img" aria-label="资产变化曲线"></div><div class="play-progress"><div id="progress-bar"></div></div><div class="play-controls"><div class="control-buttons"><button class="primary" id="play-button">暂停</button><button class="secondary" id="next-event-button">到下一节点</button><button class="secondary" id="adjust-button">调整月投</button></div><label class="speed-label">速度<select id="speed"><option value="650">1×</option><option value="220">3×</option><option value="70">10×</option></select></label></div><p class="field-note" id="play-note" aria-live="polite"></p></div>
+        <div id="decision-log" class="decision-log" hidden></div>
+        <div id="results" hidden></div>
+      </section>
+    </section>
+    <section id="annual-panel" class="panel" hidden aria-label="历年表现"><div class="surface annual-surface"><div class="section-heading"><div><p class="eyebrow">THE LONG VIEW</p><h2>三种资产，放在一起看</h2></div><label>计价<select id="annual-currency"><option value="CNY">人民币</option><option value="USD">美元</option></select></label></div><p class="muted">年度价格变化，不含定投入金。人民币口径同时反映资产价格和汇率变化。</p><div id="annual-chart" class="annual-chart"></div><div id="annual-table" class="table-wrap"></div></div></section>
+    <section id="funds-panel" class="panel" hidden aria-label="基金观察"><div class="section-heading"><div><p class="eyebrow">QDII WATCH</p><h2>先看清楚，再做选择</h2></div></div><p class="muted">个人数据包内的基金快照，不是实时查询。点击基金名称可打开天天基金核对最新状态。黄金推演采用金价，不等同于任何黄金基金。</p><p id="fund-status" class="data-stamp"></p><div class="fund-controls"><label class="sr-only" for="fund-search">搜索基金名称或代码</label><input id="fund-search" type="search" placeholder="搜索基金名称或代码"><label class="sr-only" for="fund-index">跟踪指数</label><select id="fund-index"><option value="all">全部指数</option><option value="nasdaq">纳斯达克100</option><option value="sp500">标普500</option></select><label class="sr-only" for="fund-state">申购状态</label><select id="fund-state"><option value="all">全部状态</option><option value="open">可申购</option><option value="paused">暂停申购</option></select></div><div id="fund-list"></div><p class="field-note">限额可能因销售渠道与份额类别不同而异，实际以基金公司公告和下单页面为准。申购费为页面展示费率，不包含管理费、托管费、销售服务费等全部成本。</p></section>
+    <footer class="data-footer"><span id="data-stamp"></span><button class="text-button" id="footer-method">数据与计算说明 ↗</button><p>历史模拟帮助理解风险与选择，不预示未来收益。</p></footer>
+  </main>
+  <dialog id="event-dialog" class="event-dialog" aria-labelledby="event-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" id="event-close" aria-label="关闭并保持暂停">×</button>
+      <div class="event-scroll"><p class="eyebrow" id="event-date"></p><h2 id="event-title"></h2><div id="event-content"></div><div class="event-stats" id="event-stats"></div><p class="decision-question" id="event-question"></p></div>
+      <form id="adjust-form" hidden><label>之后每月投入<span class="input-with-unit"><input id="adjust-amount" type="number" min="0" max="100000000" step="any" inputmode="decimal" required><span id="adjust-unit">元</span></span></label><p class="field-note" id="adjust-effective"></p><p id="adjust-error" class="error" role="alert" hidden></p><button class="primary wide" type="submit">确认调整，继续旅程</button></form>
+      <div class="dialog-actions" id="event-actions"><button class="primary" id="event-continue">看看接下来会怎样</button><button class="secondary" id="event-adjust">调整后续月投金额</button></div>
+    </div>
+  </dialog>
+  <dialog id="method-dialog" class="method-dialog" aria-labelledby="method-title"><div class="dialog-inner"><button class="dialog-close" id="method-close" aria-label="关闭说明">×</button><p class="eyebrow">透明的数字，才有参考价值</p><h2 id="method-title">数据与计算说明</h2><div id="method-content"></div></div></dialog>
+  <script src="./engine.js?v=3.0"></script><script src="./data-store.js?v=3.0"></script><script src="./events.js?v=3.0"></script><script src="./invest.js?v=3.0"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js?v=13').catch(function(){});}</script>
+</body>
+</html>

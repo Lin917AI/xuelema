@@ -133,6 +133,12 @@
       "<p>每天读懂一段历史、一次经济浪潮，把好奇变成判断力。</p>" +
       '<span class="progress">已更新 ' + done + " 篇 · 规划中 " + (total - done) + " 篇</span></header>";
 
+    h += '<a class="time-machine-card" href="./invest/" aria-label="打开投资时光机：纳斯达克100、标普500与黄金历史推演">' +
+      '<div class="time-machine-top"><span>新工具 · 个人历史模拟</span><span aria-hidden="true">↗</span></div>' +
+      '<div class="time-machine-title">投资时光机</div>' +
+      '<p>如果回到那一年，你会怎样投资？</p>' +
+      '<div class="time-machine-bottom"><span>纳指100 · 标普500 · 黄金</span><b>走进历史 <span aria-hidden="true">→</span></b></div></a>';
+
     DATA.categories.forEach(function (cat) {
       var list = catArticleList(cat);
       var rc = readyCount(list);
