@@ -1,14 +1,14 @@
 /* 学了么 v3：阅读与投资工具各有导航入口；缓存只含公开代码与文章。
    个人行情存于 IndexedDB，不经网络、不加入 Service Worker 缓存。 */
-var CACHE_NAME = 'xuelema-v13';
+var CACHE_NAME = 'xuelema-v14';
 var ASSETS = [
-  './index.html?v=3.0', './styles.css?v=3.0', './app.js?v=3.0', './data.js?v=3.0',
-  './content-crisis.js', './content-china.js', './content-biographies.js?v=3.0',
-  './content-worldhist.js?v=3.0', './content-econ.js?v=3.0', './content-money.js?v=3.0',
-  './content-powers.js?v=3.0', './content-people.js?v=3.0', './manifest.webmanifest?v=3.0',
+  './index.html?v=3.1', './styles.css?v=3.1', './app.js?v=3.1', './data.js?v=3.1',
+  './content-crisis.js', './content-china.js', './content-biographies.js?v=3.1',
+  './content-worldhist.js?v=3.1', './content-econ.js?v=3.1', './content-money.js?v=3.1',
+  './content-powers.js?v=3.1', './content-people.js?v=3.1', './manifest.webmanifest?v=3.1',
   './icon-192-v2.png', './icon-512-v2.png', './apple-touch-icon-v2.png',
-  './invest/index.html?v=3.0', './invest/invest.css?v=3.0', './invest/engine.js?v=3.0',
-  './invest/data-store.js?v=3.0', './invest/events.js?v=3.0', './invest/invest.js?v=3.0'
+  './invest/index.html?v=3.1', './invest/invest.css?v=3.1', './invest/engine.js?v=3.1',
+  './invest/data-store.js?v=3.1', './invest/events.js?v=3.1', './invest/invest.js?v=3.1'
 ];
 self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(CACHE_NAME).then(function (cache) {
@@ -22,8 +22,8 @@ self.addEventListener('activate', function (event) {
 });
 function offlinePage(path) {
   var base = new URL(self.registration.scope).pathname;
-  if (path === base || path === base + 'index.html') return './index.html?v=3.0';
-  if (path === base + 'invest/' || path === base + 'invest/index.html' || path === base + 'invest') return './invest/index.html?v=3.0';
+  if (path === base || path === base + 'index.html') return './index.html?v=3.1';
+  if (path === base + 'invest/' || path === base + 'invest/index.html' || path === base + 'invest') return './invest/index.html?v=3.1';
   return null;
 }
 self.addEventListener('fetch', function (event) {

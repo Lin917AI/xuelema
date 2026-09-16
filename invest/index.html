@@ -8,8 +8,8 @@
   <title>投资时光机 · 学了么</title>
   <link rel="icon" href="../icon-192-v2.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon-v2.png">
-  <link rel="manifest" href="../manifest.webmanifest?v=3.0">
-  <link rel="stylesheet" href="./invest.css?v=3.0">
+  <link rel="manifest" href="../manifest.webmanifest?v=3.1">
+  <link rel="stylesheet" href="./invest.css?v=3.1">
 </head>
 <body>
   <header class="topbar"><div class="topbar-inner"><a class="back" href="../#/" aria-label="返回学了么首页">‹ 学了么</a><span class="wordmark">投资时光机</span><button class="icon-button" id="method-button" aria-label="查看数据与计算说明">ⓘ</button></div></header>
@@ -33,20 +33,22 @@
             <label class="asset-choice sp500"><input type="radio" name="asset" value="sp500"><span class="asset-icon">S</span><span><b>标普500</b><small>美国大盘</small></span><span class="radio-mark"></span></label>
             <label class="asset-choice gold"><input type="radio" name="asset" value="gold"><span class="asset-icon">Au</span><span><b>黄金</b><small>美元计价黄金</small></span><span class="radio-mark"></span></label>
           </div></fieldset>
-          <div class="date-grid"><label>开始月份<input id="start-month" type="month" value="2000-01" min="2000-01" required></label><div><label for="end-mode">结束时间</label><select id="end-mode"><option value="latest">至最新数据</option><option value="custom">自选结束月份</option></select><label id="custom-end-wrap" class="custom-end" hidden><span class="sr-only">结束月份</span><input id="end-month" type="month" value="2013-12" min="2000-01"></label></div></div>
-          <div class="preset-row" aria-label="快速选择历史区间"><button type="button" data-preset="2000-01,2003-12">互联网泡沫</button><button type="button" data-preset="2003-01,2013-12">2003—2013</button><button type="button" data-preset="2012-01,2020-12">2012—2020</button></div>
+          <div class="date-grid">
+            <div class="date-field"><label for="start-month">开始时间</label><input id="start-month" type="month" value="2000-01" min="2000-01" required></div>
+            <div class="date-field"><label for="end-mode">结束时间</label><select id="end-mode"><option value="latest">至最新数据</option><option value="custom">自选结束月份</option></select><label id="custom-end-wrap" class="custom-end" hidden><span class="sr-only">结束月份</span><input id="end-month" type="month" value="2013-12" min="2000-01"></label></div>
+          </div>
           <div class="money-grid"><label>每月投入<input id="monthly" type="number" min="0" max="100000000" step="any" value="1000" inputmode="decimal" required></label><label>初始资金<input id="initial" type="number" min="0" max="100000000" step="any" value="0" inputmode="decimal" required></label></div>
           <div class="option-row"><label>计价币种<select id="currency"><option value="CNY">人民币 · 含汇率变化</option><option value="USD">美元</option></select></label><label>模拟年费率 (%)<input id="fee" type="number" min="0" max="10" step="any" value="0" inputmode="decimal"></label></div>
           <p class="field-note">首月投入＝初始资金＋当月定投。使用月均参考价作教学模拟，不等同于可成交价格或基金真实收益。</p>
           <p id="form-error" class="error" role="alert" hidden></p>
           <button id="start-button" class="primary wide" type="submit" disabled><span>出发，走进真实历史</span><span aria-hidden="true">→</span></button>
         </form>
-        <aside class="journey-intro surface"><div class="orbit-chart" aria-hidden="true"><svg viewBox="0 0 360 190"><defs><linearGradient id="introFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2e716a" stop-opacity=".22"/><stop offset="1" stop-color="#2e716a" stop-opacity="0"/></linearGradient></defs><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13 L352 185 L8 185Z" fill="url(#introFill)"/><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13" fill="none" stroke="#2e716a" stroke-width="3"/><circle cx="163" cy="124" r="7" fill="#c49745" stroke="#fff" stroke-width="3"/></svg><span>体验示意 · 非收益曲线</span></div><p class="eyebrow">在未知里做选择</p><h2>那一刻，你会怎么做？</h2><p>行情按月展开。遇到历史转折，时间会停下来：看看发生了什么，再决定继续、加投、减投，或暂时停投。</p><div class="intro-steps"><div><span>01</span><p>选择从 2000 年起的任意区间</p></div><div><span>02</span><p>在事件发生时，做自己的决定</p></div><div><span>03</span><p>到达终点，再与原计划对照</p></div></div><p class="field-note">过程中只展示已走过的行情。数据口径、成本与计算说明随时可查。</p></aside>
+        <aside class="journey-intro surface"><div class="orbit-chart" aria-hidden="true"><svg viewBox="0 0 360 190"><defs><linearGradient id="introFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2e716a" stop-opacity=".22"/><stop offset="1" stop-color="#2e716a" stop-opacity="0"/></linearGradient></defs><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13 L352 185 L8 185Z" fill="url(#introFill)"/><path d="M8 160 L46 140 L78 152 L106 80 L133 104 L163 124 L190 84 L217 101 L244 64 L270 75 L297 33 L352 13" fill="none" stroke="#2e716a" stroke-width="3"/><circle cx="163" cy="124" r="7" fill="#c49745" stroke="#fff" stroke-width="3"/></svg><span>体验示意 · 非收益曲线</span></div><p class="eyebrow">在未知里做选择</p><h2>那一刻，你会怎么做？</h2><p>行情按月展开。只在重大历史转折，时间会停下来：看看发生了什么，再决定继续、加投、减投，或暂时停投。</p><div class="intro-steps"><div><span>01</span><p>选择从 2000 年起的任意区间</p></div><div><span>02</span><p>在事件发生时，做自己的决定</p></div><div><span>03</span><p>到达终点，再与原计划对照</p></div></div><p class="field-note">过程中只展示已走过的行情。数据口径、成本与计算说明随时可查。</p></aside>
       </div>
       <section id="playback" hidden aria-label="历史旅程">
         <div class="journey-header"><div><p class="eyebrow" id="journey-label"></p><h2 id="current-month">2000 年 1 月</h2><p class="muted" id="journey-range"></p></div><button class="text-button" id="restart-button">重新设定</button></div>
         <div class="metrics" id="journey-metrics"></div>
-        <div class="surface chart-surface"><div class="chart-heading"><h3>你的资产旅程</h3><div class="chart-legend"><span class="legend-value">账户资产</span><span class="legend-capital">累计投入</span><span class="legend-baseline" id="baseline-legend" hidden>原计划资产</span></div></div><div id="journey-chart" class="chart" role="img" aria-label="资产变化曲线"></div><div class="play-progress"><div id="progress-bar"></div></div><div class="play-controls"><div class="control-buttons"><button class="primary" id="play-button">暂停</button><button class="secondary" id="next-event-button">到下一节点</button><button class="secondary" id="adjust-button">调整月投</button></div><label class="speed-label">速度<select id="speed"><option value="650">1×</option><option value="220">3×</option><option value="70">10×</option></select></label></div><p class="field-note" id="play-note" aria-live="polite"></p></div>
+        <div class="surface chart-surface"><div class="chart-heading"><h3>你的资产旅程</h3><div class="chart-legend"><span class="legend-value">账户资产</span><span class="legend-capital">累计投入</span><span class="legend-baseline" id="baseline-legend" hidden>原计划资产</span></div></div><div id="journey-chart" class="chart" role="img" aria-label="资产变化曲线"></div><div class="play-progress"><div id="progress-bar"></div></div><div class="play-controls"><div class="control-buttons"><button class="primary" id="play-button">暂停</button><button class="secondary" id="next-event-button">到下一节点</button><button class="secondary" id="adjust-button">调整月投</button></div><label class="speed-label">速度<select id="speed"><option value="220">1×</option><option value="44">5×</option></select></label></div><p class="field-note" id="play-note" aria-live="polite"></p></div>
         <div id="decision-log" class="decision-log" hidden></div>
         <div id="results" hidden></div>
       </section>
@@ -64,7 +66,7 @@
     </div>
   </dialog>
   <dialog id="method-dialog" class="method-dialog" aria-labelledby="method-title"><div class="dialog-inner"><button class="dialog-close" id="method-close" aria-label="关闭说明">×</button><p class="eyebrow">透明的数字，才有参考价值</p><h2 id="method-title">数据与计算说明</h2><div id="method-content"></div></div></dialog>
-  <script src="./engine.js?v=3.0"></script><script src="./data-store.js?v=3.0"></script><script src="./events.js?v=3.0"></script><script src="./invest.js?v=3.0"></script>
-  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js?v=13').catch(function(){});}</script>
+  <script src="./engine.js?v=3.1"></script><script src="./data-store.js?v=3.1"></script><script src="./events.js?v=3.1"></script><script src="./invest.js?v=3.1"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js?v=14').catch(function(){});}</script>
 </body>
 </html>

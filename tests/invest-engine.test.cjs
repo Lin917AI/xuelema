@@ -456,9 +456,10 @@ test('a single deposit in only the terminal month has a defined XIRR for all 48 
   assert.deepEqual([...observedDays].sort(), [27, 28, 29, 30]);
 });
 
-test('24 historical events have unique identifiers and valid strictly increasing months', () => {
+test('8 major historical events have unique identifiers and valid strictly increasing months', () => {
   const events = require('../invest/events.js');
-  assert.equal(events.length, 24);
+  assert.equal(events.length, 8);
+  assert.deepEqual(events.map(event => event.month), ['2000-03', '2001-09', '2008-09', '2010-05', '2018-03', '2020-03', '2022-06', '2025-04']);
   assert.equal(new Set(events.map((event) => event.id)).size, events.length);
   assert.equal(new Set(events.map((event) => event.month)).size, events.length);
   events.forEach((event, index) => {

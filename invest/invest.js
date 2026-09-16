@@ -14,6 +14,13 @@
   var activeTab = 'journey';
   var latest = '';
 
+  // 原生 dialog 会把焦点交还给触发按钮；触屏操作不应因此留下键盘外圈。
+  document.documentElement.dataset.inputMode = 'pointer';
+  document.addEventListener('pointerdown', function () { document.documentElement.dataset.inputMode = 'pointer'; }, true);
+  document.addEventListener('keydown', function (event) {
+    if (!event.metaKey && !event.ctrlKey && !event.altKey) document.documentElement.dataset.inputMode = 'keyboard';
+  }, true);
+
   function $(id) { return document.getElementById(id); }
   function esc(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
@@ -166,7 +173,7 @@
       $('adjust-button').disabled = false;
       renderJourney();
       $('playback').scrollIntoView({ block: 'start', behavior: 'smooth' });
-      $('play-button').focus({ preventScroll: true });
+      if (document.documentElement.dataset.inputMode === 'keyboard') $('play-button').focus({ preventScroll: true });
       if (!checkStop()) resume();
     } catch (err) { error('form-error', err.message); }
   }
@@ -192,7 +199,7 @@
     if (journey.index >= journey.result.points.length - 1) { finish(); return; }
     journey.running = true;
     $('play-button').textContent = '暂停';
-    $('play-note').textContent = '时间正在向前。遇到历史节点将自动暂停；你也可以随时调整后续投入。';
+    $('play-note').textContent = '时间正在向前。只在重大历史节点自动暂停；你也可以随时调整后续投入。';
     schedule();
   }
   function eventHere() {
@@ -413,7 +420,7 @@
       '<h3>人民币与美元</h3><p>人民币参考价＝美元资产价 × 人民币/美元汇率。买入和估值都使用对应月份的汇率，因此人民币升贬值会改变人民币结果。没有汇率对冲，也不包含换汇价差。</p>' +
       '<h3>调整、费用与收益</h3><p>事件在当月结束后展示，调整从下一月生效，只改变新增投入，不卖出持仓。年费率默认0；如填写1%，每月按 (1−1%) 的十二分之一次方保留份额。它是统一模拟费用，不代表具体基金真实费率。</p><p>盈利＝期末资产−累计投入。累计收益率＝盈利÷累计投入，不是年化。XIRR 使用各月月初投入及最后一个月月末资产，按365天折算资金加权年化；极短区间的年化可能很大，不代表可重复实现。</p>' +
       '<h3>回撤与年度表现</h3><p>最大回撤按排除新增资金的单位净值计算，避免加钱掩盖损失。只观察所选区间，月度采样会漏掉月内更深的跌幅。前高恢复周期也是区间内、月度口径。历年表现是资产价格变化，不是定投收益；末年未结束时标星。</p>' +
-      '<h3>历史事件的边界</h3><p>节点描述尽量限于当月已知信息；影响解释是机制分析，不是对涨跌的唯一归因。完整后续故事只在结算出现。史料链接可能是事后回顾，打开后可能看到后续结果。</p>' +
+      '<h3>历史事件的边界</h3><p>全区间精选8个重大节点；同一轮冲击中的常规政策调整不重复弹窗。节点描述尽量限于当月已知信息；影响解释是机制分析，不是对涨跌的唯一归因。完整后续故事只在结算出现。史料链接可能是事后回顾，打开后可能看到后续结果。</p>' +
       '<h3>来源与日期</h3>' + (sources.length ? '<ul>' + sources.map(function (source) { return '<li>' + link(source.url, source.label) + (source.note ? '：' + esc(source.note) : '') + '</li>'; }).join('') + '</ul>' : '<p>尚未载入行情来源。</p>') +
       '<p>“最新”指个人数据包中所有资产与汇率共同覆盖的最后完整月份，不是今日实时行情。基金观察来自包内的天天基金快照，记录净值披露日期和逐条检查时间，不自动刷新。基金限额、渠道费率可能变化，下单前必须核对原页。</p>' +
       '<p>本工具未包含税、通胀、交易滑点、全部基金成本和跟踪误差；历史结果不构成买卖建议。数据来源标注不等同于取得公开再分发许可。</p>';
@@ -423,12 +430,6 @@
   document.querySelectorAll('[data-tab]').forEach(function (button) { button.addEventListener('click', function () { setTab(button.dataset.tab); }); });
   $('setup-form').addEventListener('submit', startJourney);
   $('end-mode').addEventListener('change', function () { $('custom-end-wrap').hidden = this.value !== 'custom'; $('end-month').required = this.value === 'custom'; });
-  document.querySelectorAll('[data-preset]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var range = button.dataset.preset.split(',');
-      $('start-month').value = range[0]; $('end-month').value = range[1]; $('end-mode').value = 'custom'; $('custom-end-wrap').hidden = false; $('end-month').required = true;
-    });
-  });
   $('play-button').addEventListener('click', function () { if (journey && journey.running) { pause(); $('play-note').textContent = '已暂停，你可以继续或调整后续月投。'; } else resume(); });
   $('speed').addEventListener('change', function () { if (journey && journey.running) schedule(); });
   $('next-event-button').addEventListener('click', nextEvent);

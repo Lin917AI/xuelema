@@ -15,6 +15,12 @@
   if (root) root.INVEST_EVENTS = events;
 })(typeof window !== "undefined" ? window : typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
+  // 同一轮危机只保留一个代表节点，避免每次政策调整都打断推演。
+  // 其余已核验史料保留在源文件，但不进入播放或复盘列表。
+  var majorIds = [
+    "dotcom-rates-2000", "september11-2001", "lehman-2008", "euro-debt-2010",
+    "trade-policy-2018", "pandemic-2020", "inflation-hike-2022", "tariff-reset-2025"
+  ];
   return [
     {
       id: "dotcom-rates-2000",
@@ -228,7 +234,7 @@
     {
       id: "inflation-hike-2022",
       month: "2022-06",
-      title: "一次加息75个基点，抗通胀力度升级",
+      title: "战争与通胀叠加，紧缩冲击全球资产",
       summary: "通胀仍高，美联储指出疫情供需失衡、能源价格和更广泛的价格压力共同起作用，俄乌战争又增加了压力。6月15日，它把政策利率目标区间提高到1.50%—1.75%，本次上调75个基点，并继续推进减少国债和机构抵押贷款支持证券持仓的安排。",
       impact: "可能的传导：更高利率会抬高融资成本并压低远期盈利的现值，纳指成长股可能较敏感，标普500也受利润率和需求变化影响。黄金虽被用于应对通胀，却还受实际利率和美元制约。高通胀并不能直接推出黄金必涨。",
       question: "你是否把“通胀对资产的影响”和“央行为应对通胀而行动的影响”混为一谈？",
@@ -280,5 +286,5 @@
       source: { label: "美国白宫｜2025年4月9日关税调整行政令", url: "https://www.whitehouse.gov/presidential-actions/2025/04/modifying-reciprocal-tariff-rates-to-reflect-trading-partner-retaliation-and-alignment/" },
       article: ""
     }
-  ];
+  ].filter(function (event) { return majorIds.indexOf(event.id) !== -1; });
 });
