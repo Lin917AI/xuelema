@@ -62,6 +62,18 @@ body {
   overscroll-behavior-y: none;
 }
 
+/* ---------- 首页：独立投资工具入口，不改变原有阅读卡片 ---------- */
+.time-machine-card{display:block;color:var(--ink);text-decoration:none;background:linear-gradient(120deg,rgba(45,106,98,.10),rgba(193,158,80,.08)),var(--card);border:1px solid var(--hairline);border-radius:var(--radius);padding:21px 23px;margin-bottom:22px;box-shadow:var(--shadow);transition:transform .15s}
+.time-machine-card:active{transform:scale(.985)}
+.time-machine-card:focus-visible{outline:3px solid var(--hero-copy);outline-offset:4px}
+.time-machine-top{display:flex;justify-content:space-between;align-items:center;color:var(--hero-copy);font-size:12px;letter-spacing:.04em;font-weight:600}
+.time-machine-top>span:last-child{font-size:21px;line-height:1}
+.time-machine-title{font-size:27px;font-weight:700;letter-spacing:-.02em;margin:10px 0 3px}
+.time-machine-card>p{font-size:14px;color:var(--ink-2)}
+.time-machine-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:19px;padding-top:14px;border-top:1px solid var(--hairline);font-size:12px;color:var(--ink-2)}
+.time-machine-bottom b{color:var(--hero-copy);font-size:13px;white-space:nowrap}
+@media(max-width:360px){.time-machine-card{padding:18px}.time-machine-bottom{align-items:start;flex-direction:column}.time-machine-title{font-size:25px}}
+
 /* ---------- 顶栏（毛玻璃） ---------- */
 .top-bar {
   position: sticky;

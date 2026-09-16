@@ -8,8 +8,8 @@
 window.XLM_ARTICLES = {}; // 各 content-*.js 文件会把正文注册到这里
 
 window.XLM_DATA = {
-  version: "2.0",
-  batch: "继续探索 · 把每一篇好奇带进新对话",
+  version: "3.0",
+  batch: "投资时光机 · 把选择放回历史",
 
   categories: [
     {
