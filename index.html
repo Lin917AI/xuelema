@@ -7,7 +7,7 @@
   <meta name="description" content="每天读懂一段历史、一次经济浪潮，把好奇变成判断力。">
 
   <!-- PWA -->
-  <link rel="manifest" href="./manifest.webmanifest?v=3.0">
+  <link rel="manifest" href="./manifest.webmanifest?v=3.1">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F1EA">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131315">
 
@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./apple-touch-icon-v2.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-v2.png">
 
-  <link rel="stylesheet" href="./styles.css?v=3.0">
+  <link rel="stylesheet" href="./styles.css?v=3.1">
 </head>
 <body>
   <!-- 顶栏 -->
@@ -37,18 +37,18 @@
   </main>
 
   <!-- 目录数据 -->
-  <script src="./data.js?v=3.0"></script>
+  <script src="./data.js?v=3.1"></script>
   <!-- 各分类内容（按批次更新，替换对应文件即可） -->
   <script src="./content-crisis.js"></script>
   <script src="./content-china.js"></script>
-  <script src="./content-biographies.js?v=3.0"></script>
-  <script src="./content-worldhist.js?v=3.0"></script>
-  <script src="./content-econ.js?v=3.0"></script>
-  <script src="./content-money.js?v=3.0"></script>
-  <script src="./content-powers.js?v=3.0"></script>
-  <script src="./content-people.js?v=3.0"></script>
+  <script src="./content-biographies.js?v=3.1"></script>
+  <script src="./content-worldhist.js?v=3.1"></script>
+  <script src="./content-econ.js?v=3.1"></script>
+  <script src="./content-money.js?v=3.1"></script>
+  <script src="./content-powers.js?v=3.1"></script>
+  <script src="./content-people.js?v=3.1"></script>
   <!-- 导航与渲染 -->
-  <script src="./app.js?v=3.0"></script>
+  <script src="./app.js?v=3.1"></script>
 
   <!-- 离线缓存 -->
   <script>
@@ -56,7 +56,7 @@
       window.addEventListener("load", function () {
         // v12曾把所有路径都导航到首页；接管后修正首次访问投资页的旧响应。
         var legacyInvest = /\/invest\/(?:index\.html)?$/.test(location.pathname);
-        navigator.serviceWorker.register((legacyInvest ? "../" : "./") + "sw.js?v=13").catch(function () {});
+        navigator.serviceWorker.register((legacyInvest ? "../" : "./") + "sw.js?v=14").catch(function () {});
         if (legacyInvest) navigator.serviceWorker.addEventListener("controllerchange", function () { location.reload(); }, { once: true });
       });
     }
